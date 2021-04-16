@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.visionmobile.ui.articles.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home"
+        app:destination="@+id/home_article_fragment">
+        <action
+            android:id="@+id/action_nav_home_to_detail_fragment"
+            app:destination="@id/detail_fragment" />
+        <action
+            android:id="@+id/action_nav_home_to_scan_barcode_fragment"
+            app:destination="@id/scan_barcode_fragment" />
+        <action
+            android:id="@+id/action_nav_home_to_create_article_fragment"
+            app:destination="@id/create_article_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_providers_home"
+        android:name="com.example.visionmobile.ui.providers.ProviderHomeFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_provider_home" >
+        <action
+            android:id="@+id/action_nav_providers_home_to_fragment_provider_detail"
+            app:destination="@id/fragment_provider_detail" />
+        <action
+            android:id="@+id/action_nav_providers_home_to_fragment_provider_create"
+            app:destination="@id/fragment_provider_create" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.visionmobile.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/detail_fragment"
+        android:name="com.example.visionmobile.ui.articles.DetailFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/detail_fragment">
+
+        <argument
+            android:name="articleId"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/scan_barcode_fragment"
+        android:name="com.example.visionmobile.ui.articles.ScanBarcodeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_scan_barcode" />
+
+    <fragment
+        android:id="@+id/create_article_fragment"
+        android:name="com.example.visionmobile.ui.articles.CreateArticleFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_create_article" >
+        <action
+            android:id="@+id/action_create_article_fragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_provider_detail"
+        android:name="com.example.visionmobile.ui.providers.ProviderDetailFragment"
+        android:label="Detalle Proveedor"
+        tools:layout="@layout/fragment_provider_detail" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_provider_create"
+        android:name="com.example.visionmobile.ui.providers.ProvideCreateFragment"
+        android:label="Detalle Proveedor"
+        tools:layout="@layout/fragment_provider_create" >
+    </fragment>
+
+</navigation>
